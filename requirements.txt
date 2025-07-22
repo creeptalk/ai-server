@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+transformers
+diffusers
+safetensors
+sentence-transformers
+faiss-cpu
+pandas
+numpy
+accelerate
