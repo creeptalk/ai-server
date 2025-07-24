@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from app.rag_engine import query_rag_system
-from app.translator import translate_ko_to_en, translate_en_to_ko
+# from app.rag_engine import query_rag_system
+# from app.translator import translate_ko_to_en, translate_en_to_ko
 from io import BytesIO
-from diffusers import StableDiffusionPipeline
+# from diffusers import StableDiffusionPipeline
 import torch
 
 app = FastAPI()
