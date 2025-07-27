@@ -22,9 +22,9 @@ app = FastAPI()
 #     torch_dtype=torch.float16
 # ).to("cuda")
 
-# class QueryInput(BaseModel):
-#     query: str
-#     translate: bool = True
+class QueryInput(BaseModel):
+    query: str
+    translate: bool = True
 
 # @app.post("/query")
 # def rag_query(input: QueryInput):
@@ -53,8 +53,8 @@ app = FastAPI()
 @app.post("/test-query")
 def gpt_api_query(input: QueryInput):
     query = input.query
-    if input.translate:
-        query = translate_ko_to_en(query)
+    # if input.translate:
+    #     query = translate_ko_to_en(query)
 
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo", 
@@ -68,7 +68,7 @@ def gpt_api_query(input: QueryInput):
 
     answer = response['choices'][0]['message']['content']
 
-    if input.translate:
-        answer = translate_en_to_ko(answer)
+    # if input.translate:
+    #     answer = translate_en_to_ko(answer)
 
     return {"answer": answer}
