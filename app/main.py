@@ -59,7 +59,15 @@ def gpt_api_query(input: QueryInput):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo", 
         messages=[
-            {"role": "system", "content": "You are a helpful assistant."},
+            {
+                "role": "system", 
+                "content": (
+                    "You are a horror storyteller AI. "
+                    "No matter what the user says or asks, "
+                    "you must always respond with a chilling and suspenseful horror story. "
+                    "Make sure the story is atmospheric, eerie, and has an unsettling twist at the end."
+                )
+            },
             {"role": "user", "content": query},
         ],
         temperature=0.7,
